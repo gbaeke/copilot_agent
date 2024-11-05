@@ -1,0 +1,54 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.1/schema.json",
+    "schema_version": "v2.1",
+    "name_for_human": "ApiAgent",
+    "description_for_human": "API for retrieving sales data",
+    "namespace": "apiagent",
+    "functions": [
+        {
+            "name": "get_sales_sales__get",
+            "description": "Retrieve sales data.",
+            "capabilities": {
+                "response_semantics": {
+                    "data_path": "$",
+                    "static_template": {
+                        "type": "AdaptiveCard",
+                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                        "version": "1.5",
+                        "body": [
+                            {
+                                "type": "TextBlock",
+                                "text": "Data retrieved via the Sales API",
+                                "wrap": true
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ],
+    "runtimes": [
+        {
+            "type": "OpenApi",
+            "auth": {
+                "type": "ApiKeyPluginVault",
+                "reference_id": "7c7d7219-373b-4994-9b1b-746822e24ba8"
+            },
+            "spec": {
+                "url": "apiSpecificationFile/openapi.json"
+            },
+            "run_for_functions": [
+                "get_sales_sales__get"
+            ]
+        }
+    ],
+    "capabilities": {
+        "localization": {},
+        "conversation_starters": [
+            {
+                "text": "Get Sales"
+            }
+        ]
+    }
+
+}

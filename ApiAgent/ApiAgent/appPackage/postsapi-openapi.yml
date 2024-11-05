@@ -1,0 +1,130 @@
+openapi: 3.0.1
+info:
+  title: Posts API - Subset
+  version: '1.0'
+servers:
+  - url: https://jsonplaceholder.typicode.com/
+paths:
+  /posts:
+    get:
+      description: Get posts
+      operationId: GetPosts
+      parameters:
+        - name: userId
+          in: query
+          description: Filter results by user ID
+          style: form
+          explode: false
+          schema:
+            maxItems: 1
+            type: integer
+        - name: title
+          in: query
+          description: Filter results by title
+          style: form
+          explode: false
+          schema:
+            maxItems: 1
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/post'
+  /users:
+    get:
+      summary: Get users
+      description: Returns details about users
+      operationId: GetUsers
+      parameters:
+        - name: name
+          in: query
+          description: The user's real name
+          style: form
+          explode: false
+          schema:
+            type: string
+        - name: username
+          in: query
+          description: The user's login name
+          style: form
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+components:
+  schemas:
+    post:
+      type: object
+      properties:
+        userId:
+          type: integer
+          description: The ID of the user that authored the post.
+        id:
+          type: integer
+        title:
+          type: string
+        body:
+          type: string
+    user:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        website:
+          type: string
+        address:
+          $ref: '#/components/schemas/address'
+        company:
+          $ref: '#/components/schemas/company'
+    address:
+      type: object
+      properties:
+        street:
+          type: string
+        suite:
+          type: string
+        city:
+          type: string
+        zipcode:
+          type: string
+        geo:
+          $ref: '#/components/schemas/coordinates'
+    company:
+      type: object
+      properties:
+        name:
+          type: string
+        catchPhrase:
+          type: string
+        bs:
+          type: string
+    coordinates:
+      type: object
+      properties:
+        lat:
+          type: string
+          description: The latitude of the location
+        lng:
+          type: string
+          description: The longitude of the location

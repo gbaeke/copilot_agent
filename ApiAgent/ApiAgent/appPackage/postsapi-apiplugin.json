@@ -1,0 +1,44 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.1/schema.json",
+  "schema_version": "v2.1",
+  "name_for_human": "Posts API",
+  "description_for_human": "Description for Posts API",
+  "description_for_model": "Description for Posts API",
+  "contact_email": "publisher-email@example.com",
+  "namespace": "PostsAPI",
+  "capabilities": {
+    "conversation_starters": [
+      {
+        "text": "Get posts"
+      },
+      {
+        "text": "Get users"
+      }
+    ]
+  },
+  "functions": [
+    {
+      "name": "GetPosts",
+      "description": "Get posts"
+    },
+    {
+      "name": "GetUsers",
+      "description": "Returns details about users"
+    }
+  ],
+  "runtimes": [
+    {
+      "type": "OpenApi",
+      "auth": {
+        "type": "None"
+      },
+      "spec": {
+        "url": "postsapi-openapi.yml"
+      },
+      "run_for_functions": [
+        "GetPosts",
+        "GetUsers"
+      ]
+    }
+  ]
+}

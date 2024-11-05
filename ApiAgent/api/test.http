@@ -1,0 +1,30 @@
+### Root endpoint (no auth required)
+GET http://localhost:8000/
+
+### Get sales data with valid Bearer token
+GET http://localhost:8000/sales/
+Authorization: Bearer abc1234567
+
+### Get sales data with invalid Bearer token (should return 401)
+GET http://localhost:8000/sales/
+Authorization: Bearer wrong-token
+
+### Get sales data from ngrok endpoint with valid Bearer token
+GET https://627d-94-143-189-241.ngrok-free.app/sales/
+Authorization: Bearer abc1234567
+
+### Get sales data from dev tunnels endpoint with valid Bearer token
+GET https://mxbwxv7b-8000.euw.devtunnels.ms/sales/
+Authorization: Bearer abc1234567
+
+
+
+### Get sales data from ngrok endpoint with invalid Bearer token (should return 401)
+GET https://627d-94-143-189-241.ngrok-free.app/sales/
+Authorization: Bearer wrong-token
+
+### Get docs endpoint (no auth required)
+GET http://localhost:8000/openapi.json
+
+### Get docs endpoint from ngrok endpoint (no auth required)
+GET https://627d-94-143-189-241.ngrok-free.app/docs/

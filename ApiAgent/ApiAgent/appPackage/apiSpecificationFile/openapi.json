@@ -1,0 +1,62 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sales API",
+    "description": "API for retrieving sales data",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/sales/": {
+      "get": {
+        "summary": "Get Sales",
+        "description": "Retrieve sales data.\nRequires Bearer token authentication.",
+        "operationId": "get_sales_sales__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "Root",
+        "description": "Root endpoint - provides API information",
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://627d-94-143-189-241.ngrok-free.app",
+      "description": "Production server"
+    }
+  ]
+}
