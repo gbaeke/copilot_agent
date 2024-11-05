@@ -9,7 +9,6 @@ API_KEY=your_api_key
 Before running the API, create a virtual environment and install the required packages:
 
 ```bash
-cd ApiAgent
 python3 -m venv venv
 source venv/bin/activate
 pip install -r ApiAgent/api/requirements.txt
@@ -21,4 +20,4 @@ Run the API from the /ApiAgent/api folder:
 python app.py
 ```
 
-Check the blog post for more information:
+Check the blog post for more information: https://blog.baeke.info/2024/11/05/create-a-copilot-declarative-agent-that-calls-an-api-with-authentication/
